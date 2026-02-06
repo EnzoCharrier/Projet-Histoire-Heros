@@ -1,17 +1,14 @@
-<!DOCTYPE html>		
-    <html lang= "fr">
+<?php
+ 
+	include 'Controleur/controleur.php';
 
-        <head>
-	        <meta charset= "utf-8">	
-	        <title>Labyrinthe</title>
-            <link rel="stylesheet" href="style/style.css">
-        </head>
-        <body>
+	if(isset($_GET['page'])) $page = $_GET['page'];
+	else $page = 1;
 
-            <?php
- 	
-                echo "<header>";
-                echo "<h1> Test </h1>";
-            ?>
-        </body>
-    </html>
+	
+	if($page == 1){
+		$monAccueil = new Page1Controleur();
+		$monAccueil -> afficherAccueil();
+	}
+
+?>
