@@ -1,0 +1,59 @@
+use HistoireHeros;
+
+drop table Ennemi;
+drop table Choix;
+drop table Histoire;
+drop table Inventaire;
+drop table Personnage;
+drop table Objets;
+
+CREATE TABLE Histoire (
+    id_histoire INT,
+    texte VARCHAR(50),
+    PRIMARY KEY (id_histoire)
+);
+
+CREATE TABLE Choix (
+    id_histoire INT,
+    id_histoire_1 INT,
+    choix_possible VARCHAR(50),
+    PRIMARY KEY (id_histoire, id_histoire_1),
+    FOREIGN KEY (id_histoire) REFERENCES Histoire(id_histoire),
+    FOREIGN KEY (id_histoire_1) REFERENCES Histoire(id_histoire)
+);
+
+CREATE TABLE Personnage (
+    id_perso INT AUTO_INCREMENT,
+    pv INT,
+    pm INT,
+    `force` INT,
+    or_ INT,
+    cle BOOLEAN,
+    PRIMARY KEY (id_perso)
+);
+
+CREATE TABLE Objets (
+    type VARCHAR(50),
+    nom VARCHAR(50),
+    effet INT,
+    PRIMARY KEY (type)
+);
+
+CREATE TABLE Inventaire (
+    id_perso INT,
+    `type` VARCHAR(50),
+    quantite INT,
+    PRIMARY KEY (id_perso, type),
+    FOREIGN KEY (id_perso) REFERENCES Personnage(id_perso),
+    FOREIGN KEY (type) REFERENCES Objets(type)
+);
+
+CREATE TABLE Ennemi (
+    id_ennemi INT AUTO_INCREMENT,
+    pv INT,
+    `force` INT,
+    PRIMARY KEY (id_ennemi)
+);
+
+
+
