@@ -1,8 +1,8 @@
 <?php
 
-	class Page1Vue{
+	class VueAccueil{
 
-		public function renduAccueil($message){
+		public function rendu($message){
 					
 		 $accueil =  "<!doctype html>
 						<html lang='fr'>

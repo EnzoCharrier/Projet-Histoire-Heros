@@ -7,7 +7,7 @@
 
 	
 	if($page == 1){
-		$monAccueil = new Page1Controleur();
+		$monAccueil = new ControleurAccueil();
 		$monAccueil -> afficherAccueil();
 	}
 

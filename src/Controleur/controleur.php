@@ -4,16 +4,17 @@ include 'Modèle/modele.php';
 include 'Vue/vue.php';
 
 
-class Page1Controleur {
+class ControleurAccueil {
 
 	public function afficherAccueil(){
-		$modele = new Page1Modele();
-		$message = $modele -> getMessage();
 
-		$lavue = new Page1Vue();
-		$rendu = $lavue -> renduAccueil($message);
+		$modeleAccueil = new ModeleAccueil();
+		$pageAccueil = $modeleAccueil -> getAccueil();
 
-		echo $rendu;
+		$vueAccueil = new VueAccueil();
+		$renduAccueil = $vueAccueil -> rendu($pageAccueil);
+
+		echo $renduAccueil;
 		
 	}
 
@@ -21,5 +22,4 @@ class Page1Controleur {
 	}
 	public function __destruct(){}
 };
-
 ?>
