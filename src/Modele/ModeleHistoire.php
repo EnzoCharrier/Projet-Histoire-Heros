@@ -19,7 +19,7 @@ class ModeleHistoire {
         }
 
 
-    // fonction requete pour trouver les choix possible lié a l id actuelle
+    // fonction requete pour trouver les choix possible lié a l id actuelle//
         public function getChoix($id){
             $req = "SELECT * FROM Choix WHERE id_histoire = :id";
             $reqChoix = $this->pdo->prepare($req);
