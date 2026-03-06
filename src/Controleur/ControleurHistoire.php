@@ -14,6 +14,7 @@ class ControleurHistoire {
     //Fonction pour afficher les fonction de vue
         public function afficher(){
 
+            $this->vue->menu();
             if(isset($_GET['id']))
             {
                 $id = (int) $_GET['id'];
@@ -22,7 +23,7 @@ class ControleurHistoire {
             {
                 $id = 0;
             }
-
+        
         if($id === 0) {
             // Page d'accueil
                 $this->vue->accueil();
@@ -32,6 +33,8 @@ class ControleurHistoire {
                 $choix = $this->modele->getChoix($id);
                 $this->vue->jouer($histoire, $choix);
         }
+
     }
+
 }
 ?>

@@ -14,4 +14,18 @@ include("Controleur/ControleurHistoire.php");
 
 $controleur = new ControleurHistoire($pdo);
 $controleur->afficher();
+
+
+/////////* A FAIRE *////////////
+// Ajouter les données histoire et choix
+// Gerer systeme d'inventaire
+// Gerer Ennemi et Combat
+// Ajouter données obj
+// Gerer changement de stats et effet objet
+// Gerer inventaire
+// Gerer bouton retry en cas de fin
+// Faire en sorte de ne pas pouvoir revenir en arriere avec fleche
+// Gerer image/son
+// css a Faire
+
 ?>
