@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 include("Modele/ModeleHistoire.php");
 include("Vue/vueHistoire.php");
 
@@ -33,10 +33,17 @@ class ControleurHistoire {
                 $this->vue->regles();
         } 
         else {
-            // Récupérer l'histoire et les choix
+            // RÃ©cupÃ©rer l'histoire et les choix
                 $histoire = $this->modele->getHistoire($id);
+
+            if ($this->modele->isFin($id)) {
+            // FIN 
+                $this->vue->jouer($histoire, []); // tableau vide
+            } else {
+                //  CONTINUER
                 $choix = $this->modele->getChoix($id);
                 $this->vue->jouer($histoire, $choix);
+}
         }
 
     }

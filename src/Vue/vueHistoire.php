@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class VueHistoire {
 
     public function menu(){
@@ -19,7 +19,7 @@ class VueHistoire {
         }
 
         public function regles() {
-            echo '<h1>R�gles </h1>';
+            echo '<h1>Règles </h1>';
             
 
         }
@@ -32,14 +32,18 @@ class VueHistoire {
                 //echo "<h1>".$histoire["texte"]."</h1>";
                 echo "<h2>Que voulez-vous faire ?</h2>";
 
-                foreach($choix as $unChoix){
-                echo '<p>';
-                    echo '<a href="index.php?id='.$unChoix["id_histoire_1"].'">';
+                if (empty($choix)) {                
+                    echo '<a href="index.php" class="btnReset"> Recommencer</a>';
+                 } 
+                 else {
+                 foreach($choix as $unChoix){
+                    echo '<p>';
+                        echo '<a href="index.php?id='.$unChoix["id_histoire_1"].'">';
                         echo $unChoix["choix_possible"];
-                    echo '</a>';
-                echo '</p>';
-            
-            }
+                        echo '</a>';
+                    echo '</p>';
+                    }
+                }
             echo "</div>";
             echo '</body></html>';
         }

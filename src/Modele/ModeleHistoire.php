@@ -28,13 +28,15 @@ class ModeleHistoire {
             return $reqChoix->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public function getFin($id){
-            $req = "SELECT * FROM Choix WHERE id_histoire = :id";
-            $reqChoix = $this->pdo->prepare($req);
-            $reqChoix->bindValue(':id', $id, PDO::PARAM_INT);
-            $reqChoix->execute();
-            return $reqChoix->fetchAll(PDO::FETCH_ASSOC);
-        }
+        public function isFin($id){
+        $req = "SELECT id_histoire FROM Histoire WHERE id_histoire = :id AND texte LIKE '%FIN #%'";
+        $stmt = $this->pdo->prepare($req);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch() !== false;
+}
+        
 }
 
 ?>
