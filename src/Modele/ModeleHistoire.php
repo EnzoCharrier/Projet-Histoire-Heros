@@ -27,6 +27,14 @@ class ModeleHistoire {
             $reqChoix->execute();
             return $reqChoix->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        public function getFin($id){
+            $req = "SELECT * FROM Choix WHERE id_histoire = :id";
+            $reqChoix = $this->pdo->prepare($req);
+            $reqChoix->bindValue(':id', $id, PDO::PARAM_INT);
+            $reqChoix->execute();
+            return $reqChoix->fetchAll(PDO::FETCH_ASSOC);
+        }
 }
 
 ?>

@@ -27,7 +27,12 @@ class ControleurHistoire {
         if($id === 0) {
             // Page d'accueil
                 $this->vue->accueil();
-        } else {
+        } 
+        else if($id === 99) {
+            // Page de regles
+                $this->vue->regles();
+        } 
+        else {
             // Récupérer l'histoire et les choix
                 $histoire = $this->modele->getHistoire($id);
                 $choix = $this->modele->getChoix($id);

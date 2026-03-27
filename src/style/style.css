@@ -1,0 +1,229 @@
+﻿/* --- IMPORT FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel+Decorative:wght@700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* --- VARIABLES --- */
+
+
+
+
+/* --- RESET & BASE --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background-color: #0a0608;
+    background-image: radial-gradient(ellipse at 20% 10%, rgba(139,105,20,0.07) 0%, transparent 50%), radial-gradient(ellipse at 80% 90%, rgba(192,57,43,0.05) 0%, transparent 50%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%230a0608'/%3E%3Crect width='1' height='1' fill='%23130b0d' opacity='0.6'/%3E%3C/svg%3E");
+    color: #e8dcc8;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 1.15rem;
+    line-height: 1.75;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* MENU */
+h1:first-of-type,
+.menu h1 {
+    font-family: 'Cinzel Decorative', 'Times New Roman', serif;
+    font-size: clamp(1.1rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: #d4a017;
+    text-align: center;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 1.2rem 2rem 1rem;
+    width: 100%;
+    background: linear-gradient(180deg, #1a0f08 0%, transparent 100%);
+    border-bottom: 1px solid #8b6914;
+    box-shadow: 0 2px 30px rgba(212,160,23,0.12), 0 1px 0 rgba(255,255,255,0.04) inset;
+    position: relative;
+    text-shadow: 0 0 20px rgba(212,160,23,0.5), 0 0 60px rgba(212,160,23,0.15);
+    animation: titlePulse 4s ease-in-out infinite;
+}
+
+
+body > *:not(h1:first-of-type) {
+    width: 100%;
+    max-width: 780px;
+    padding: 2rem 1.5rem;
+}
+
+/* PAGE ACCUEIL */
+/* h1 Accueil */
+h1 {
+    font-family: 'Cinzel Decorative', serif;
+    color: #f5e6b0;
+    font-size: clamp(1.3rem, 4vw, 2.2rem);
+    text-align: center;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 25px rgba(212,160,23,0.3);
+}
+
+/* CONTENEUR DES BOUTONS */
+.menu-boutons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* STYLE COMMUN AUX DEUX BOUTONS */
+.menu-boutons a {
+    display: inline-block;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #0a0608;
+    background: linear-gradient(135deg, #d4a017 0%, #f5e6b0 45%, #c8900a 100%);
+    padding: 0.85rem 3rem;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 25px rgba(212,160,23,0.4), 0 0 60px rgba(212,160,23,0.1);
+    animation: ctaPulse 2.5s ease-in-out infinite;
+    }
+
+/* HOVER */
+.menu-boutons a:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 35px rgba(212,160,23,0.6), 0 0 80px rgba(212,160,23,0.25);
+    filter: brightness(1.1);
+}
+
+
+
+/* PANNEAU DE JEU */
+div {
+    background: linear-gradient(160deg, #1e1419 0%, #110d0f 60%, #0f0a0d 100%);
+    border: 1px solid #3a2a1a;
+    border-top: 1px solid #8b6914;
+    border-radius: 2px;
+    padding: 2.5rem 2.5rem 2rem;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.8), 0 8px 50px rgba(0,0,0,0.85), 0 0 80px rgba(139,105,20,0.06) inset;
+    animation: panelAppear 0.6s ease-out both;
+}
+
+
+
+/* COINS DECO */
+    div::before,
+    div::after {
+        content: '';
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-color: #8b6914;
+        border-style: solid;
+        opacity: 0.6;
+    }
+
+div::before {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+}
+
+div::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+}
+
+/* TEXTE HISTOIRE */
+    div p.texte-histoire {
+        font-family: 'Crimson Text', Georgia, serif;
+        font-size: 1.15rem;
+        font-style: italic;
+        color: #e8dcc8;
+        line-height: 1.75;
+        overflow-y: auto;
+        max-height: 45vh;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #3a2a1a;
+    }
+
+/* Titre "Que voulez-vous faire ?" */
+    div h2 {
+        font-family: 'Cinzel Decorative', serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #9a8878;
+        margin-bottom: 1.4rem;
+        margin-top: 0.5rem;
+    }
+
+/* BOUTONS */
+div p {
+    margin-bottom: 0.75rem;
+}
+
+    div p a {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        text-decoration: none;
+        color: #e8dcc8;
+        font-family: 'Crimson Text', Georgia, serif;
+        font-size: 1.1rem;
+        padding: 0.85rem 1.4rem;
+        background: linear-gradient(90deg, rgba(139,105,20,0.08) 0%, transparent 100%);
+        border: 1px solid #3a2a1a;
+        border-left: 3px solid #8b6914;
+        position: relative;
+        transition: all 0.22s ease;
+        overflow: hidden;
+    }
+
+
+/* HOVER */
+div p a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(212,160,23,0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.22s ease;
+}
+
+        div p a:hover {
+            color: #e8c45a;
+            border-left-color: #d4a017;
+            border-color: rgba(139,105,20,0.5);
+            background: linear-gradient(90deg, rgba(139,105,20,0.18) 0%, transparent 100%);
+            transform: translateX(5px);
+            box-shadow: -4px 0 20px rgba(212,160,23,0.15);
+            text-shadow: 0 0 15px rgba(212,160,23,0.4);
+        }
+
+div p a:hover::before {
+    transform: translateX(3px);
+}
+
+div p a:hover::after {
+    opacity: 1;
+}
+
+div p a:active {
+    transform: translateX(7px);
+    filter: brightness(0.9);
+}
+
+
+
+
