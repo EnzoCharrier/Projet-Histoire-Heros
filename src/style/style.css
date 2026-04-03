@@ -15,6 +15,10 @@
 
 html {
     min-height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
@@ -28,6 +32,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+}
+
+
+
+body.home {
+    background-image: linear-gradient(rgba(10, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('../img/accueil.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 /* MENU */
@@ -40,7 +53,7 @@ h1:first-of-type,
     text-align: center;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding: 1.2rem 2rem 1rem;
+    padding: 0.4rem 2rem 0.35rem;
     width: 100%;
     background: linear-gradient(180deg, #1a0f08 0%, transparent 100%);
     border-bottom: 1px solid #8b6914;
@@ -70,12 +83,16 @@ h1 {
 }
 
 /* CONTENEUR DES BOUTONS */
-.menu-boutons{
+.menu-boutons {
     display: flex;
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
     flex-wrap: wrap;
+    width: 80%;
+    /*background-image: url('../img/accueil.jpg');*/
+    
+
 }
 
 /* STYLE COMMUN AUX DEUX BOUTONS */
@@ -115,6 +132,7 @@ div {
     position: relative;
     box-shadow: 0 0 0 1px rgba(0,0,0,0.8), 0 8px 50px rgba(0,0,0,0.85), 0 0 80px rgba(139,105,20,0.06) inset;
     animation: panelAppear 0.6s ease-out both;
+
 }
 
 
@@ -225,5 +243,173 @@ div p a:active {
 }
 
 
+/* background accueil */
+body.accueil {
+    background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)), url('../img/accueil.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* bakground en jeu */
+body.jeu {
+    background-image: radial-gradient(ellipse at 20% 10%, rgba(139,105,20,0.07) 0%, transparent 50%), radial-gradient(ellipse at 80% 90%, rgba(192,57,43,0.05) 0%, transparent 50%);
+}
+
+.page-accueil {
+    background: none;
+    border: none;
+    box-shadow: none;
+    animation: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* ← était center */
+    padding-top: 6vh; /* ← espace depuis le header */
+    flex: 1;
+    gap: 2.5rem;
+}
+
+    .page-accueil::before,
+    .page-accueil::after {
+        display: none;
+    }
+
+.menu-boutons {
+    background: none;
+    border: none;
+    box-shadow: none;
+    animation: none;
+    padding: 0;
+}
+
+    .menu-boutons::before,
+    .menu-boutons::after {
+        display: none;
+    }
+
+/* Titre Accueil plus grand et visible sur l'image */
+.page-accueil h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    text-shadow: 0 0 30px rgba(212,160,23,0.7), 0 0 80px rgba(212,160,23,0.3), 0 4px 20px rgba(0,0,0,0.95);
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(139,105,20,0.4);
+}
 
 
+
+
+.combat-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+    .combat-stats::before,
+    .combat-stats::after {
+        display: none;
+    }
+
+.combattant {
+    flex: 1;
+    text-align: center;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+    .combattant::before,
+    .combattant::after {
+        display: none;
+    }
+
+.vs {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
+    color: #c0392b;
+    text-shadow: 0 0 20px rgba(192,57,43,0.6);
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+    .vs::before, .vs::after {
+        display: none;
+    }
+
+.barre-vie {
+    width: 100%;
+    height: 12px;
+    background: #1a0f0a;
+    border: 1px solid #3a2a1a;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+    .barre-vie::before,
+    .barre-vie::after {
+        display: none;
+    }
+
+.vie-joueur {
+    height: 100%;
+    background: linear-gradient(90deg, #1a6b1a, #2ecc71);
+    border-radius: 6px;
+    transition: width 0.4s ease;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+    .vie-joueur::before,
+    .vie-joueur::after {
+        display: none;
+    }
+
+.vie-ennemi {
+    height: 100%;
+    background: linear-gradient(90deg, #8b1a1a, #c0392b);
+    border-radius: 6px;
+    transition: width 0.4s ease;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+    .vie-ennemi::before,
+    .vie-ennemi::after {
+        display: none;
+    }
+
+.btn-attaque {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #0a0608;
+    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 50%, #c0392b 100%);
+    border: none;
+    padding: 0.9rem 2.5rem;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.25s ease;
+    font-weight: 700;
+}
+
+    .btn-attaque:hover {
+        transform: translateY(-2px) scale(1.04);
+        filter: brightness(1.15);
+    }

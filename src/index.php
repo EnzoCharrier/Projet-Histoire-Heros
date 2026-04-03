@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Connexion à la BD
 $db="HistoireHeros";
 $dbhost="192.168.56.10";
