@@ -6,7 +6,7 @@ class VueHistoire {
         echo '<meta charset="UTF-8">';
         echo '<link rel="stylesheet" href="style/style.css">';
         echo '</head><body class="'.$classe.'">';
-            echo "<h1>Projet Histoire Heros</h1>";
+            echo "<h1> Ashen Oath </h1>";
     }
 
     public function accueil() {
