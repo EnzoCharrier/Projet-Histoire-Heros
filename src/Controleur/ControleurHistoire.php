@@ -23,8 +23,8 @@ class ControleurHistoire {
        
         
 
-        // action combat
-        if (isset($_POST['action_combat'])) {
+        // permet de lancer le combat
+        if (isset($_POST['action_combat_attaque']) || isset($_POST['action_combat_esquive'])) {
             $this->tourCombat();
             return;
         }
@@ -58,6 +58,8 @@ class ControleurHistoire {
 
             $histoire = $this->modele->getHistoire($id);
             $choix    = $this->modele->getChoix($id);
+            $personnage = $this->modele->getPersonnage($_SESSION['idPerso']);
+            $inventaire = $this->modele->getInventaire($_SESSION['idPerso']);
 
             // Si combat est en cours
             if (isset($_SESSION['combat']) && $_SESSION['combat']['id_histoire'] == $id) {
@@ -93,7 +95,7 @@ class ControleurHistoire {
             else
             {
                 $this->vue->menu('jeu');
-                $this->vue->jouer($histoire, $choix);
+                $this->vue->jouer($histoire, $choix,$personnage, $inventaire);
             }
         }
     }
@@ -104,13 +106,21 @@ class ControleurHistoire {
         $combat = $_SESSION['combat'];
 
         // joueur attaque ennemi
-        $combat['pv_ennemi'] -= $combat['force_joueur'];
-        
+        if (isset($_POST['action_combat_attaque'])){
+            $combat['pv_ennemi'] -= $combat['force_joueur'];
 
-        // ennemi attaque si vie > 0
-        if ($combat['pv_ennemi'] > 0) {
-            $combat['pv_joueur'] -= $combat['force_ennemi'];
+            if ($combat['pv_ennemi'] > 0) {
+                $random = rand(1,2);
+                if ($random == 1)
+                    $combat['pv_joueur'] -= $combat['force_ennemi'];
+                }
         }
+        
+        
+        
+        // ennemi attaque si vie > 0
+        
+        
 
         $this->vue->menu('jeu');
 

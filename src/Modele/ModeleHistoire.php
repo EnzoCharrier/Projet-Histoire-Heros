@@ -53,6 +53,17 @@ class ModeleHistoire {
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
+
+        // Recupère l'inventaire d'un perso
+        public function getInventaire($id_perso) {
+            $req = "SELECT Inventaire.quantite, Objets.nom, Objets.type, Objets.effet 
+                    FROM Inventaire INNER JOIN Objets ON Inventaire.type = Objets.type 
+                    WHERE Inventaire.Id_perso = :id";
+            $stmt = $this->pdo->prepare($req);
+            $stmt->bindValue(':id', $id_perso, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
 }
 
 ?>

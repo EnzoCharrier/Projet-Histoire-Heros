@@ -1,11 +1,18 @@
 <?php
 session_start();
 // Connexion à la BD
-$db="HistoireHeros";
-$dbhost="192.168.56.10";
+//$db="HistoireHeros";
+//$dbhost="192.168.56.10";
+//$dbport=3306;
+//$dbuser="admin";
+//$dbpasswd="admin";
+
+$db="charrier";
+$dbhost="charrier.slam.lab";
 $dbport=3306;
-$dbuser="admin";
-$dbpasswd="admin";
+$dbuser="charrier";
+$dbpasswd="QiDjr9mq5PEF";
+
 
 $pdo = new PDO("mysql:host=$dbhost;port=$dbport;dbname=$db", $dbuser, $dbpasswd);
 $pdo->exec("SET NAMES utf8");
@@ -23,8 +30,7 @@ $controleur->afficher();
 // Ajouter données obj
 // Gerer changement de stats et effet objet
 // Gerer inventaire
-// Gerer bouton retry en cas de fin
-// Gerer image/son
+// Gerer son
 
 
 ?>

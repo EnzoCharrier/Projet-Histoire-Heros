@@ -29,37 +29,95 @@ class VueHistoire {
     echo '</body></html>';
 }
 
-    public function jouer($histoire, $choix) {
-        echo "<div>";
-            echo "<p class='texte-histoire'>".$histoire["texte"]."</p>";
+    public function jouer($histoire, $choix, $personnage, $inventaire) {
+        echo '<div class="page-jeu">';
+
+        // Interface Histoire et choix
+        echo '<div class="panneau-histoire">';
+            echo "<p class='texte-histoire'>" . $histoire["texte"] . "</p>";
             echo "<h2>Que voulez-vous faire ?</h2>";
             if (empty($choix)) {
-                echo '<p><a href="index.php" class="btnReset">Recommencer</a></p>';
-            } else {
-                foreach($choix as $unChoix){
+                echo '<p><a href="index.php" class="btnReset"> Recommencer</a></p>';
+            } 
+            else {
+                foreach ($choix as $unChoix) {
                     echo '<p>';
                         echo '<a href="index.php?id='.$unChoix["id_histoire_1"].'">';
-                        echo $unChoix["choix_possible"];
+                            echo $unChoix["choix_possible"];
                         echo '</a>';
                     echo '</p>';
                 }
             }
-        echo "</div>";
+        echo '</div>';
+
+        // Interface de stats
+         if ($personnage) {
+            echo '<div class="panneau-stats">';
+
+                echo '<div class="stats-perso">';
+                    echo '<h2> Votre personnage </h2>';
+                    echo '<div class="stat-ligne">';
+                        echo '<span class="stat-label"> PV</span>';
+                        echo '<div class="barre-vie-stat"><div class="vie-stat" style="width:' . $personnage['pv']. '%"></div>';
+                    echo '</div>';
+                    echo '<span class="stat-valeur">'.$personnage['pv'].'</span>';
+                echo '</div>';
+
+                echo '<div class="stat-ligne">';
+                    echo '<span class="stat-label">PM</span>';
+                    echo '<div class="barre-mana-stat"><div class="mana-stat" style="width:' .$personnage['pm'].'%"></div>';
+                echo '</div>';
+                echo '<span class="stat-valeur">'.$personnage['pm'].'</span>';
+                echo '</div>';
+                echo '<div class="stat-ligne">';
+                    echo '<span class="stat-label"> Force</span>';
+                    echo '<span class="stat-valeur">'.$personnage['force'].'</span>';
+                echo '</div>';
+                echo '<div class="stat-ligne">';
+                    echo '<span class="stat-label">Or</span>';
+                    echo '<span class="stat-valeur">'.$personnage['or_'].'</span>';
+                echo '</div>';
+            echo '</div>';
+
+            // Inventaire
+            echo '<div class="inventaire">';
+                echo '<h2> Inventaire</h2>';
+                if (empty($inventaire)) {
+                    echo '<p class="inventaire-vide">Aucun objet</p>';
+                } 
+                else {
+                    echo '<ul class="liste-objets">';
+                    foreach ($inventaire as $objet) {
+                        echo '<li class="objet">';
+                            echo '<span class="objet-nom">'.$objet['nom'].'</span>';
+                            echo '<span class="objet-type">'.$objet['type'].'</span>';
+                            echo '<span class="objet-effet">+'.$objet['effet'].'</span>';
+                            echo '<span class="objet-qte">x'.$objet['quantite'].'</span>';
+                        echo '</li>';
+                    }
+                    echo '</ul>';
+                }
+            echo '</div>';
+         echo '</div>';
+        }
+        echo '</div>';
         echo '</body></html>';
     }
 
+    // fonction combat
     public function combat($combat) {
         echo '<div>';
         echo '<h2> Combat contre '.$combat['nom_ennemi'].' !</h2>';
 
         // Barres de vie
-    if ($_SESSION['maxJ'] == 0 && $_SESSION['maxE'] == 0){
-        $_SESSION['maxJ'] = $combat['pv_joueur']; 
-        $_SESSION['maxE'] = $combat['pv_ennemi']; 
-    }
+        if ((empty($_SESSION['maxJ']) || $_SESSION['maxJ'] == 0) && (empty($_SESSION['maxJ']) || $_SESSION['maxJ'] == 0)){
+            $_SESSION['maxJ'] = $combat['pv_joueur']; 
+            $_SESSION['maxE'] = $combat['pv_ennemi']; 
+        }
         
         $actuelle_joueur =  $combat['pv_joueur'] / $_SESSION['maxJ'] *100;
         $actuelle_ennemi =  $combat['pv_ennemi'] / $_SESSION['maxE'] *100;
+        //$personnage['pv'] = $actuelle_joueur;
         
 
         echo '<div class="combat-stats">';
@@ -79,11 +137,23 @@ class VueHistoire {
                 echo '</div>';
             echo '</div>';
 
-            // Bouton attaquer
-            echo '<form method="POST">';
-                echo '<input type="hidden" name="action_combat" value="attaquer">';
-                echo '<button type="submit" class="btn-attaque"> Attaquer</button>';
-            echo '</form>';
+            // Bouton pour différentes actions en combat
+            echo '<div class="boutons-combat">';
+
+                // Bouton Attaquer
+                echo '<form method="POST">';
+                    echo '<input type="hidden" name="action_combat_attaque" value="attaquer">';
+                    echo '<button type="submit" class="btn-attaque"> Attaquer</button>';
+                echo '</form>';
+
+                // Bouton Esquive
+                echo '<form method="POST">';
+                    echo '<input type="hidden" name="action_combat_esquive" value="esquiver">';
+                    echo '<button type="submit" class="btn-esquive"> Esquiver</button>';
+                echo '</form>';
+
+
+            echo '</div>';
         echo '</div>';
     echo '</body></html>';
 }

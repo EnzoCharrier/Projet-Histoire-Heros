@@ -1,7 +1,6 @@
-﻿/* --- IMPORT FONTS --- */
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel+Decorative:wght@700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel+Decorative:wght@700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 
-/* --- VARIABLES --- */
+
 
 
 
@@ -409,7 +408,287 @@ body.jeu {
     font-weight: 700;
 }
 
-    .btn-attaque:hover {
+    .btn-attaque:hover{
         transform: translateY(-2px) scale(1.04);
         filter: brightness(1.15);
     }
+
+
+.btn-esquive {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #0a0608;
+    background: linear-gradient(135deg, #1a6b6b 0%, #1abc9c 50%, #1a6b6b 100%);
+    border: none;
+    padding: 0.9rem 2.5rem;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    transition: all 0.25s ease;
+    font-weight: 700;
+    box-shadow: none;
+    animation: none;
+}
+
+    .btn-esquive:hover {
+        transform: translateY(-2px) scale(1.04);
+        filter: brightness(1.15);
+    }
+
+
+/* Boutons combat côte à côte */
+.boutons-combat {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    background: none;
+    border: none;
+    box-shadow: none;
+    animation: none;
+    padding: 0;
+}
+
+
+    .boutons-combat::before,
+    .boutons-combat::after {
+        display: none;
+    }
+
+
+
+
+
+/* =====================
+   LAYOUT PAGE JEU
+   ===================== */
+.page-jeu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    box-shadow: none;
+    animation: none;
+    padding: 0;
+}
+
+    .page-jeu::before,
+    .page-jeu::after {
+        display: none;
+    }
+
+/* Panneau histoire — garde le style div existant */
+.panneau-histoire {
+    flex: 1;
+}
+
+/* =====================
+   PANNEAU STATS
+   ===================== */
+.panneau-stats {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.2rem 2rem;
+    background: linear-gradient(160deg, #1a1015 0%, #0f0a0d 100%);
+    border: 1px solid #3a2a1a;
+    border-top: 2px solid #8b6914;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.8), 0 -4px 30px rgba(0,0,0,0.5);
+    flex-shrink: 0;
+    position: relative;
+}
+
+    .panneau-stats::before {
+        top: -1px;
+        left: -1px;
+        border-width: 2px 0 0 2px;
+    }
+
+    .panneau-stats::after {
+        bottom: -1px;
+        right: -1px;
+        border-width: 0 2px 2px 0;
+    }
+
+    .panneau-stats h2 {
+        font-family: 'Cinzel Decorative', serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #9a8878;
+        margin-bottom: 0.8rem;
+    }
+
+/* Stats personnage */
+.stats-perso {
+    flex: 1;
+    background: none;
+    border: none;
+    box-shadow: none;
+    animation: none;
+    padding: 0;
+}
+
+    .stats-perso::before,
+    .stats-perso::after {
+        display: none;
+    }
+
+.stat-ligne {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+    background: none;
+    border: none;
+    box-shadow: none;
+    animation: none;
+    padding: 0;
+}
+
+    .stat-ligne::before,
+    .stat-ligne::after {
+        display: none;
+    }
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #9a8878;
+    width: 60px;
+    flex-shrink: 0;
+}
+
+.stat-valeur {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.85rem;
+    color: #d4a017;
+    margin-left: auto;
+}
+
+.barre-vie-stat,
+.barre-mana-stat {
+    flex: 1;
+    height: 8px;
+    background: #1a0f0a;
+    border: 1px solid #3a2a1a !important;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: none;
+    padding: 0;
+}
+
+    .barre-vie-stat::before, .barre-vie-stat::after,
+    .barre-mana-stat::before, .barre-mana-stat::after {
+        display: none;
+    }
+
+.vie-stat {
+    height: 100%;
+    background: linear-gradient(90deg, #1a6b1a, #2ecc71);
+    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+    .vie-stat::before, .vie-stat::after {
+        display: none;
+    }
+
+.mana-stat {
+    height: 100%;
+    background: linear-gradient(90deg, #1a3a8b, #3498db);
+    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+    .mana-stat::before, .mana-stat::after {
+        display: none;
+    }
+
+/* =====================
+   INVENTAIRE
+   ===================== */
+.inventaire {
+    flex: 1;
+    border-left: 1px solid #3a2a1a;
+    padding-left: 1.5rem;
+    background: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    box-shadow: none;
+    animation: none;
+}
+
+    .inventaire::before,
+    .inventaire::after {
+        display: none;
+    }
+
+.inventaire-vide {
+    color: #9a8878;
+    font-style: italic;
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    box-shadow: none;
+    animation: none;
+}
+
+    .inventaire-vide::before,
+    .inventaire-vide::after {
+        display: none;
+    }
+
+.liste-objets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.objet {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(139,105,20,0.06);
+    border: 1px solid #3a2a1a;
+    border-left: 3px solid #8b6914;
+    font-size: 0.9rem;
+    box-shadow: none;
+    animation: none;
+}
+
+    .objet::before, .objet::after {
+        display: none;
+    }
+
+.objet-nom {
+    color: #e8dcc8;
+    flex: 1;
+}
+
+.objet-type {
+    color: #9a8878;
+    font-size: 0.8rem;
+}
+
+.objet-effet {
+    color: #2ecc71;
+    font-size: 0.8rem;
+}
+
+.objet-qte {
+    color: #d4a017;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.8rem;
+}
