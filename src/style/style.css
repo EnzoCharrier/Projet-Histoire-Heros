@@ -2,9 +2,6 @@
 
 
 
-
-
-
 /* --- RESET & BASE --- */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -89,7 +86,6 @@ h1 {
     margin-top: 2rem;
     flex-wrap: wrap;
     width: 80%;
-    /*background-image: url('../img/accueil.jpg');*/
     
 
 }
@@ -438,8 +434,29 @@ body.jeu {
         filter: brightness(1.15);
     }
 
+.btn-utiliser {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #0a0608;
+    background: linear-gradient(135deg, #1a3a8b 0%, #3498db 50%, #1a3a8b 100%);
+    border: none;
+    padding: 0.9rem 2.5rem;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    transition: all 0.25s ease;
+    font-weight: 700;
+}
 
-/* Boutons combat côte à côte */
+    .btn-utiliser:hover {
+        transform: translateY(-2px) scale(1.04);
+        filter: brightness(1.15);
+    }
+
+
 .boutons-combat {
     display: flex;
     gap: 1rem;
@@ -459,11 +476,6 @@ body.jeu {
 
 
 
-
-
-/* =====================
-   LAYOUT PAGE JEU
-   ===================== */
 .page-jeu {
     display: flex;
     flex-direction: column;
@@ -482,14 +494,11 @@ body.jeu {
         display: none;
     }
 
-/* Panneau histoire — garde le style div existant */
 .panneau-histoire {
     flex: 1;
 }
 
-/* =====================
-   PANNEAU STATS
-   ===================== */
+
 .panneau-stats {
     display: flex;
     gap: 1.5rem;
@@ -613,9 +622,8 @@ body.jeu {
         display: none;
     }
 
-/* =====================
-   INVENTAIRE
-   ===================== */
+
+
 .inventaire {
     flex: 1;
     border-left: 1px solid #3a2a1a;
@@ -691,4 +699,138 @@ body.jeu {
     color: #d4a017;
     font-family: 'Cinzel Decorative', serif;
     font-size: 0.8rem;
+}
+
+.objet-magasin {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(139,105,20,0.08);
+    border: 1px solid #3a2a1a;
+    border-left: 3px solid #d4a017;
+    border-radius: 4px;
+}
+
+.objet-magasin strong {
+    font-family: 'Cinzel Decorative', serif;
+    color: #f5e6b0;
+    font-size: 1rem;
+}
+
+.objet-magasin p {
+    margin: 0;
+    color: #e8dcc8;
+    font-size: 0.95rem;
+}
+
+.message-magasin {
+    margin-bottom: 1rem;
+    padding: 0.85rem 1rem;
+    background: rgba(212,160,23,0.12);
+    border: 1px solid rgba(212,160,23,0.3);
+    color: #f5e6b0;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+.btn-achat {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0a0608;
+    background: linear-gradient(135deg, #d4a017 0%, #f5e6b0 45%, #c8900a 100%);
+    border: none;
+    padding: 0.75rem 1.4rem;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-weight: 700;
+    box-shadow: none;
+    animation: none;
+    align-self: start;
+}
+
+.btn-achat:hover {
+    transform: translateY(-2px) scale(1.04);
+    filter: brightness(1.05);
+}
+
+body::before {
+    content: none;
+}
+
+h1 {
+    margin : 0;
+    padding: 0;
+}
+
+
+
+/* =====================
+   FORMULAIRE OBJET EN COMBAT
+   À ajouter à la fin de style.css
+   ===================== */
+.form-objet {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    background: none;
+    border: none;
+    box-shadow: none;
+    animation: none;
+    padding: 0;
+}
+
+.form-objet::before,
+.form-objet::after { display: none; }
+
+.select-objet {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 1rem;
+    color: #e8dcc8;
+    background: linear-gradient(160deg, #1e1419 0%, #110d0f 100%);
+    border: 1px solid #8b6914;
+    padding: 0.6rem 1rem;
+    flex: 1;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.select-objet:focus {
+    border-color: #d4a017;
+    box-shadow: 0 0 10px rgba(212,160,23,0.2);
+}
+
+.select-objet option {
+    background: #110d0f;
+    color: #e8dcc8;
+}
+
+.btn-utiliser {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0a0608;
+    background: linear-gradient(135deg, #1a6b6b 0%, #1abc9c 50%, #1a6b6b 100%);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-weight: 700;
+    box-shadow: none;
+    animation: none;
+    flex-shrink: 0;
+}
+
+.btn-utiliser:hover {
+    transform: translateY(-2px) scale(1.04);
+    filter: brightness(1.15);
 }
