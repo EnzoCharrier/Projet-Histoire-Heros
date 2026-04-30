@@ -28,7 +28,11 @@ class VueHistoire {
     public function regles() {
         echo '<div>';
             echo '<h2>Règles du jeu</h2>';
-            echo '<p class="texte-histoire">les règles</p>';
+            echo '<p class="texte-histoire">Durant votre partie il y a plusieurs choses a savoir : </p>';
+            echo '<p class="texte-histoire"> - Ce jeu est doté de plusieurs fin qui peuvent être plus ou moins difficiles a obtenir selon vos choix</p>';
+            echo '<p class="texte-histoire"> - Vos statistique varieront selon votre personnage</p>';
+            echo '<p class="texte-histoire"> - Les objets sont uniques et peuvent être utilisé une seule fois par exemplaire</p>';
+            echo '<p class="texte-histoire"> - Votre personnage se soignera après chaque combat</p>';
             echo '<p><a href="index.php">Retour à l\'accueil</a></p>';
         echo '</div>';
         echo '</body></html>';

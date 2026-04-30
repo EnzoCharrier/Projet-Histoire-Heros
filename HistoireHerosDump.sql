@@ -1,3 +1,5 @@
+use charrier;
+
 /*M!999999\- enable the sandbox mode */ 
 -- MariaDB dump 10.19-11.8.3-MariaDB, for debian-linux-gnu (x86_64)
 --
@@ -235,6 +237,41 @@ commit;
 -- Table structure for table `Inventaire`
 --
 
+--
+-- Table structure for table `Personnage`
+--
+
+DROP TABLE IF EXISTS `Personnage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Personnage` (
+  `id_perso` int(11) NOT NULL AUTO_INCREMENT,
+  `pv` int(11) DEFAULT NULL,
+  `pm` int(11) DEFAULT NULL,
+  `force` int(11) DEFAULT NULL,
+  `or_` int(11) DEFAULT NULL,
+  `cle` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_perso`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `Objets`
+--
+
+DROP TABLE IF EXISTS `Objets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Objets` (
+  `id_objet` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(50) DEFAULT NULL,
+  `nom` varchar(50) DEFAULT NULL,
+  `effet` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_objet`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
 DROP TABLE IF EXISTS `Inventaire`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
@@ -260,21 +297,6 @@ set autocommit=0;
 UNLOCK TABLES;
 commit;
 
---
--- Table structure for table `Objets`
---
-
-DROP TABLE IF EXISTS `Objets`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Objets` (
-  `id_objet` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(50) DEFAULT NULL,
-  `nom` varchar(50) DEFAULT NULL,
-  `effet` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_objet`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `Objets`
@@ -292,23 +314,6 @@ INSERT INTO `Objets` VALUES
 UNLOCK TABLES;
 commit;
 
---
--- Table structure for table `Personnage`
---
-
-DROP TABLE IF EXISTS `Personnage`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Personnage` (
-  `id_perso` int(11) NOT NULL AUTO_INCREMENT,
-  `pv` int(11) DEFAULT NULL,
-  `pm` int(11) DEFAULT NULL,
-  `force` int(11) DEFAULT NULL,
-  `or_` int(11) DEFAULT NULL,
-  `cle` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id_perso`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `Personnage`
@@ -334,3 +339,4 @@ commit;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
 -- Dump completed on 2026-04-29 22:28:14
+

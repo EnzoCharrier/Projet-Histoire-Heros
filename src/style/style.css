@@ -1,8 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel+Decorative:wght@700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 
 
-
-/* --- RESET & BASE --- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -131,8 +129,6 @@ div {
 }
 
 
-
-/* COINS DECO */
     div::before,
     div::after {
         content: '';
@@ -260,8 +256,8 @@ body.jeu {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* ← était center */
-    padding-top: 6vh; /* ← espace depuis le header */
+    justify-content: flex-start;
+    padding-top: 6vh; 
     flex: 1;
     gap: 2.5rem;
 }
@@ -284,7 +280,7 @@ body.jeu {
         display: none;
     }
 
-/* Titre Accueil plus grand et visible sur l'image */
+/* Titre Accueil */
 .page-accueil h1 {
     font-size: clamp(2.5rem, 6vw, 5rem);
     text-shadow: 0 0 30px rgba(212,160,23,0.7), 0 0 80px rgba(212,160,23,0.3), 0 4px 20px rgba(0,0,0,0.95);
@@ -768,11 +764,6 @@ h1 {
 }
 
 
-
-/* =====================
-   FORMULAIRE OBJET EN COMBAT
-   À ajouter à la fin de style.css
-   ===================== */
 .form-objet {
     display: flex;
     align-items: center;
